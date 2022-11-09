@@ -25,14 +25,14 @@ pipeline
             footer: "테스트 빌드가 성공했습니다.", 
             link: env.BUILD_URL, result: currentBuild.currentResult, 
             title: "테스트 젠킨스 job", 
-            webhookURL: "http://11.11.50.32:80"
+            webhookURL: "https://11.11.50.32"
         }
         failure {
             discordSend description: "알림테스트", 
             footer: "테스트 빌드가 실패했습니다.", 
             link: env.BUILD_URL, result: currentBuild.currentResult, 
             title: "테스트 젠킨스 job", 
-            webhookURL: "http://11.11.50.32:80"
+            webhookURL: "https://11.11.50.32"
         }
     }
 }
