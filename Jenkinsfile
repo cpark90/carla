@@ -14,7 +14,9 @@ pipeline
     {
         stage('Creating nodes')
         {
-            sendNotifications 'STARTED'
+            steps{
+                sendNotifications 'STARTED'
+            }
         }
     }
 }
