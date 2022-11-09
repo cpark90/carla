@@ -22,17 +22,17 @@ pipeline
     }
     post {
         success {
-            discordSend description: "알림테스트", 
-            footer: "테스트 빌드가 성공했습니다.", 
+            discordSend description: "Notification test", 
+            footer: "Test build success", 
             link: env.BUILD_URL, result: currentBuild.currentResult, 
-            title: "테스트 젠킨스 job", 
+            title: "Test jenkins job", 
             webhookURL: env.WEBHOOK_URL
         }
         failure {
-            discordSend description: "알림테스트", 
-            footer: "테스트 빌드가 실패했습니다.", 
+            discordSend description: "Notification test", 
+            footer: "Test build fail", 
             link: env.BUILD_URL, result: currentBuild.currentResult, 
-            title: "테스트 젠킨스 job", 
+            title: "Test jenkins job", 
             webhookURL: env.WEBHOOK_URL
         }
     }
