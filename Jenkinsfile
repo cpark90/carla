@@ -18,7 +18,6 @@ pipeline
                 echo 'test'
             }
         }
-
         post {
                 success {
                     discordSend description: "알림테스트", 
