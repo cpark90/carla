@@ -16,7 +16,7 @@ pipeline
         stage('Creating nodes')
         {
             steps{
-                echo 'test'
+                echo env.WEBHOOK_URL
             }
         }
     }
