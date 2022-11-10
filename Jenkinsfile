@@ -321,7 +321,7 @@ pipeline
                         {
                             deleteDir()
 
-                            node('master')
+                            node('built-in')
                             {
                                 script
                                 {
