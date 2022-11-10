@@ -5,9 +5,6 @@ pipeline
 {
     agent none
 
-    environment {
-        WEBHOOK_URL = credentials("DISCORD_WEBHOOK")
-    }
     options
     {
         buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3'))
@@ -217,6 +214,9 @@ pipeline
                 stage('windows')
                 {
                     agent { label "sim122" }
+                    environment {
+                        WEBHOOK_URL = credentials("DISCORD_WEBHOOK")
+                    }
                     stages
                     {
                         stage('windows setup')
