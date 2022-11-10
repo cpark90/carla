@@ -306,9 +306,6 @@ pipeline
                     }
                     post
                     {
-                            echo env.BUILD_URL
-                            echo currentBuild.currentResult
-                            echo env.WEBHOOK_URL
                         success {
                             discordSend description: "Notification test", 
                             footer: "Test build success", 
@@ -331,6 +328,10 @@ pipeline
                             {
                                 script
                                 {
+
+                                    echo env.BUILD_URL
+                                    echo currentBuild.currentResult
+                                    echo env.WEBHOOK_URL
                                     echo "no job"
                                 }
                             }
