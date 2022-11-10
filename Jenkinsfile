@@ -230,7 +230,7 @@ pipeline
                     agent { label "sim122" }
                     environment
                     {
-                        UE4_ROOT = 'C:\\work\carlaUE4'
+                        UE4_ROOT = 'C:\work\carlaUE4'
                     }
                     stages
                     {
