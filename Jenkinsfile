@@ -23,7 +23,7 @@ pipeline
                 script
                 {
                     JOB_ID = "${env.BUILD_TAG}"
-                    echo "no job"
+                    echo "create node"
                 }
             }
         }
@@ -328,11 +328,7 @@ pipeline
                             {
                                 script
                                 {
-
-                                    echo env.BUILD_URL
-                                    echo currentBuild.currentResult
-                                    echo env.WEBHOOK_URL
-                                    echo "no job"
+                                    echo "delete node"
                                 }
                             }
                         }
