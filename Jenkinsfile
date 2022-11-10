@@ -22,6 +22,7 @@ pipeline
             {
                 script
                 {
+                    JOB_ID = "${env.BUILD_TAG}"
                     echo "no job"
                 }
             }
@@ -32,7 +33,7 @@ pipeline
             {
                 stage('ubuntu')
                 {
-                    agent { label "ubuntu && build && ${JOB_ID}" }
+                    agent { label "sim125" }
                     environment
                     {
                         UE4_ROOT = '/home/jenkins/UnrealEngine_4.26'
@@ -113,10 +114,7 @@ pipeline
                                     {
                                         script
                                         {
-                                            JOB_ID = "${env.BUILD_TAG}"
-                                            jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
-
-                                            jenkinsLib.CreateUbuntuTestNode(JOB_ID)
+                                            echo "create node"
                                         }
                                     }
                                 }
@@ -124,7 +122,7 @@ pipeline
                         }
                         stage('ubuntu smoke tests')
                         {
-                            agent { label "ubuntu && gpu && ${JOB_ID}" }
+                            agent { label "sim_gpu" }
                             steps
                             {
                                 unstash name: 'ubuntu_eggs'
@@ -147,13 +145,7 @@ pipeline
                                     deleteDir()
                                     node('master')
                                     {
-                                        script
-                                        {
-                                            JOB_ID = "${env.BUILD_TAG}"
-                                            jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
-
-                                            jenkinsLib.DeleteUbuntuTestNode(JOB_ID)
-                                        }
+                                        echo "delete node"
                                     }
                                 }
                             }
@@ -216,10 +208,7 @@ pipeline
                             {
                                 script
                                 {
-                                    JOB_ID = "${env.BUILD_TAG}"
-                                    jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
-
-                                    jenkinsLib.DeleteUbuntuBuildNode(JOB_ID)
+                                    echo "delete node"
                                 }
                             }
                         }
