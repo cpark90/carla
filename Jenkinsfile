@@ -5,6 +5,9 @@ pipeline
 {
     agent none
 
+    environment {
+        WEBHOOK_URL = credentials("DISCORD_WEBHOOK")
+    }
     options
     {
         buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3'))
@@ -214,9 +217,6 @@ pipeline
                 stage('windows')
                 {
                     agent { label "sim122" }
-                    environment {
-                        WEBHOOK_URL = credentials("DISCORD_WEBHOOK")
-                    }
                     stages
                     {
                         stage('windows setup')
@@ -306,6 +306,9 @@ pipeline
                     }
                     post
                     {
+                            echo env.BUILD_URL
+                            echo currentBuild.currentResult
+                            echo env.WEBHOOK_URL
                         success {
                             discordSend description: "Notification test", 
                             footer: "Test build success", 
