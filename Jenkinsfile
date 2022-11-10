@@ -332,22 +332,23 @@ pipeline
                     }
                 }
             }
-        }
-        post {
 
-            success {
-                discordSend description: "Notification test", 
-                footer: "Test build success", 
-                link: env.BUILD_URL, result: currentBuild.currentResult, 
-                title: "Test jenkins job", 
-                webhookURL: env.WEBHOOK_URL
-            }
-            failure {
-                discordSend description: "Notification test", 
-                footer: "Test build fail", 
-                link: env.BUILD_URL, result: currentBuild.currentResult, 
-                title: "Test jenkins job", 
-                webhookURL: env.WEBHOOK_URL
+            post {
+
+                success {
+                    discordSend description: "Notification test", 
+                    footer: "Test build success", 
+                    link: env.BUILD_URL, result: currentBuild.currentResult, 
+                    title: "Test jenkins job", 
+                    webhookURL: env.WEBHOOK_URL
+                }
+                failure {
+                    discordSend description: "Notification test", 
+                    footer: "Test build fail", 
+                    link: env.BUILD_URL, result: currentBuild.currentResult, 
+                    title: "Test jenkins job", 
+                    webhookURL: env.WEBHOOK_URL
+                }
             }
         }
     }
