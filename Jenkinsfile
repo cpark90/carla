@@ -1,8 +1,6 @@
 #!/usr/bin/env groovy
 @Library('cpark_carla') _ 
 
-#!/usr/bin/env groovy
-
 pipeline
 {
     agent none
